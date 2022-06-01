@@ -124,7 +124,7 @@ def main():
     minutes = int((tot_time%3600)/60)
     seconds = int((tot_time%3600)%60)
     miliseconds = int(round(tot_time - (hours*3600) - (minutes*60) - seconds, 3) * 1000)
-    print(f"\n** Total Elapsed Runtime: {hours}:{minutes}:{seconds}:{miliseconds}")
+    print(f"\n** Total Elapsed Runtime: {hours:02d}:{minutes:02d}:{seconds:02d}:{miliseconds:03d}")
     
 
 # Call to main function to run the program

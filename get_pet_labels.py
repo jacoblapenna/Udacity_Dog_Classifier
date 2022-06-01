@@ -51,7 +51,7 @@ def get_pet_labels(image_dir):
             if word.isalpha():
                 words.append(word.lower())
         # join all words to form value
-        value = " ".join(words)
+        value = " ".join(words).strip()
         results_dic[key] = value
     
     # return the dictionary containing {file : label} pairs

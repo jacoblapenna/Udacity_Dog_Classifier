@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 # */AIPND-revision/intropyproject-classify-pet-images/adjust_results4_isadog.py
 #                                                                             
-# PROGRAMMER: 
+# PROGRAMMER: Jacob Lapenna
 # DATE CREATED:                                 
-# REVISED DATE: 
+# REVISED DATE: June 1, 2022
 # PURPOSE: Create a function adjust_results4_isadog that adjusts the results 
 #          dictionary to indicate whether or not the pet image label is of-a-dog, 
 #          and to indicate whether or not the classifier image label is of-a-dog.
@@ -30,13 +30,9 @@
 #           at indices 3 & 4 to 1 when the label is of-a-dog and to 0 when the 
 #           label isn't a dog.
 #
-##
-# TODO 4: Define adjust_results4_isadog function below, specifically replace the None
-#       below by the function definition of the adjust_results4_isadog function. 
-#       Notice that this function doesn't return anything because the 
-#       results_dic dictionary that is passed into the function is a mutable 
-#       data type so no return is needed.
-# 
+
+import warnings
+
 def adjust_results4_isadog(results_dic, dogfile):
     """
     Adjusts the results dictionary to determine if classifier correctly 
@@ -65,6 +61,45 @@ def adjust_results4_isadog(results_dic, dogfile):
                associated with that breed (ex. maltese dog, maltese terrier, 
                maltese) (string - indicates text file's filename)
     Returns:
-           None - results_dic is mutable data type so no return needed.
+           None - results_dic is changes in place.
     """           
-    None
+    
+    dog_keys = {}
+    
+    with open(dogfile, 'r') as file:
+        for line in file:
+            dog = line.lower().strip()
+            if dog in dog_keys:
+                warnings.warn(f"Dog name collisions found in {dogfile}: more than one instance of {dog} was encountered!")
+            else:
+                dog_keys[dog] = 1
+                              
+    for key in results_dic:
+        # check if image is a dog image
+        if dog_keys.get(results_dic[key][0]):
+            results_dic[key].append(1)
+        else:
+            results_dic[key].append(0)
+        # check if image was classified as a dog image
+        if results_dic[key][3] and results_dic[key][2]:
+            # if it is a dog image and a match(e.g. (1,1,1)), then it was classified as a dog image.
+            results_dic[key].append(1)
+        # There are situations where the classifier classifies a dog image even though
+        # there is not a match, for example:
+        #     1. it is not a dog image but it is classified as a dog image (e.g. (0,0,1) a
+        #        polar bear classified as a dog).
+        #     2. it is a dog image, but classified as a different dog (e.g. (0,1,1) an image
+        #        of a beagle classified as a german shepard).
+        elif not results_dic[key][2]:
+            # seperate out each classifier term
+            classifiers = map(str.strip, results_dic[key][1].split(','))
+            # assume not classified as dog until proven otherwise (e.g. (0,0,0) and (0,1,0) cases).
+            results_dic[key].append(0)
+            for classifier in classifiers:
+                # try each classification term in the dictionary until one matches
+                if dog_keys.get(classifier):
+                    results_dic[key][4] = 1
+                    break
+        else:
+            # otherwise it was not classified as a dog image
+            results_dic[key].append(0)

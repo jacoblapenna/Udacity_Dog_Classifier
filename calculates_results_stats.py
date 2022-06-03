@@ -38,10 +38,7 @@
 #            pct_correct_notdogs - percentage of correctly classified NON-dogs
 #
 ##
-# TODO 5: Define calculates_results_stats function below, please be certain to replace None
-#       in the return statement with the results_stats_dic dictionary that you create 
-#       with this function
-# 
+
 def calculates_results_stats(results_dic):
     """
     Calculates statistics of the results of the program run using classifier's model 
@@ -95,7 +92,6 @@ def calculates_results_stats(results_dic):
         if value[3]:
             stats["n_dogs_img"] += 1
         else:
-            print(value)
             stats["n_notdogs_img"] += 1
             if value[2]:
                 stats["n_correct_notdogs"] += 1
@@ -111,6 +107,5 @@ def calculates_results_stats(results_dic):
     stats["pct_correct_breed"] = percent("n_correct_breed", "n_dogs_img")
     stats["pct_correct_notdogs"] = percent("n_correct_notdogs", "n_notdogs_img")
     
-    print(stats)
     # return the stats dictionary created in this function 
     return stats

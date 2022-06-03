@@ -64,6 +64,7 @@ def print_results(results_dic, results_stats, model,
     """    
     
     print(f"========= Summary of {model.upper()} Model Classification Results =========")
+    print(results_dic)
     print()
     print("CLASSIFICATION TOTALS:")
     print(f"Number of total images: {results_stats['n_images']}")

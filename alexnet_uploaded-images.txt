@@ -1,0 +1,27 @@
+========= Summary of ALEXNET Model Classification Results =========
+{'sea_turtle_01.jpg': ['sea turtle', 'loggerhead, loggerhead turtle, caretta caretta', 0, 0, 0], 'car_01.jpg': ['car', 'sports car, sport car', 1, 0, 0], 'bichon_frise_01.jpg': ['bichon frise', 'maltese dog, maltese terrier, maltese', 0, 1, 1], 'bichon_frise_02.jpg': ['bichon frise', 'miniature poodle', 0, 1, 1]}
+
+CLASSIFICATION TOTALS:
+Number of total images: 4
+Number of dog images: 2
+Number of non-dog images: 2
+Number of correctly classified dog images: 2
+Number of correctly classified dog images with correctly classified breed: 0
+Number of correctly classified non-dog images: 1
+Number of total correct classifications (dog or not): 1
+
+CLASSIFICATION PERCENTS:
+Percentage of total correct matches: 25.0
+Percentage of dog images correctly classified as dogs: 100.0
+Percentage of dog images where the breed of dog was correctly identified: 0.0
+Percentage of correctly classified pets which are not dogs: 50.0
+
+INCORRECTLY CLASSIFIED DOG IMAGES:
+None encountered.
+
+INCORRECTLY CLASSIFIED BREEDS:
+File bichon_frise_01.jpg was correctly classified as a dog though the breed was incorrectly classified as maltese dog, maltese terrier, maltese.
+File bichon_frise_02.jpg was correctly classified as a dog though the breed was incorrectly classified as miniature poodle.
+
+
+** Total Elapsed Runtime: 00:00:00:308

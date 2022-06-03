@@ -31,7 +31,7 @@
 #       Notice that this function doesn't to return anything because it  
 #       prints a summary of the results using results_dic and results_stats_dic
 # 
-def print_results(results_dic, results_stats_dic, model, 
+def print_results(results_dic, results_stats, model, 
                   print_incorrect_dogs = False, print_incorrect_breed = False):
     """
     Prints summary results on the classification and then prints incorrectly 
@@ -62,5 +62,52 @@ def print_results(results_dic, results_stats_dic, model,
     Returns:
            None - simply printing results.
     """    
-    None
-                
+    
+    print(f"========= Summary of {model.upper()} Model Classification Results =========")
+    print()
+    print("CLASSIFICATION TOTALS:")
+    print(f"Number of total images: {results_stats['n_images']}")
+    print(f"Number of dog images: {results_stats['n_dogs_img']}")
+    print(f"Number of non-dog images: {results_stats['n_notdogs_img']}")
+    print(f"Number of correctly classified dog images: {results_stats['n_correct_dogs']}")
+    print(f"Number of correctly classified dog images with correctly classified breed: {results_stats['n_correct_breed']}")
+    print(f"Number of correctly classified non-dog images: {results_stats['n_correct_notdogs']}")
+    print(f"Number of total correct classifications (dog or not): {results_stats['n_match']}")
+    print()
+    print("CLASSIFICATION PERCENTS:")
+    print(f"Percentage of total correct matches: {results_stats['pct_match']}")
+    print(f"Percentage of dog images correctly classified as dogs: {results_stats['pct_correct_dogs']}")
+    print(f"Percentage of dog images where the breed of dog was correctly identified: {results_stats['pct_correct_breed']}")
+    print(f"Percentage of correctly classified pets which are not dogs: {results_stats['pct_correct_notdogs']}")
+    
+    if print_incorrect_dogs or print_incorrect_breed:
+        incorrect_dogs = []
+        incorrect_breeds = []
+        for key in results_dic:
+            value = results_dic[key]
+            if print_incorrect_dogs:
+                if value[3] and not value[4]:
+                    incorrect_dogs.append((key, value[1]))
+            if print_incorrect_breed:
+                if value[3] and value[4] and not value[2]:
+                    incorrect_breeds.append((key, value[1]))
+        if print_incorrect_dogs:
+            print()
+            print("INCORRECTLY CLASSIFIED DOG IMAGES:")
+            if incorrect_dogs:
+                for icd in incorrect_dogs:
+                    print(f"File {icd[0]} was incorrectly classified as {icd[1]}.")
+            else:
+                print("None encountered.")
+        if print_incorrect_breed:
+            print()
+            print("INCORRECTLY CLASSIFIED BREEDS:")
+            if incorrect_breeds:
+                for icb in incorrect_breeds:
+                    print(f"File {icb[0]} was correctly classified as a dog though the breed was incorrectly classified as {icb[1]}.")
+            else:
+                print("None encountered.")
+    
+    print()
+  
+                 

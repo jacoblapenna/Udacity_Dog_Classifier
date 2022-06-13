@@ -1,4 +1,14 @@
 ========= Summary of VGG Model Classification Results =========
+['cat', 'tabby, tabby cat, cat', 1, 0, 0]
+['great horned owl', 'ruffed grouse, partridge, bonasa umbellus', 0, 0, 0]
+['fox squirrel', 'fox squirrel, eastern fox squirrel, sciurus niger', 1, 0, 0]
+['polar bear', 'ice bear, polar bear, ursus maritimus, thalarctos maritimus', 1, 0, 0]
+['gecko', 'banded gecko, gecko', 1, 0, 0]
+['gecko', 'tailed frog, bell toad, ribbed toad, tailed toad, ascaphus trui', 0, 0, 0]
+['cat', 'lynx', 0, 0, 0]
+['skunk', 'skunk, polecat, wood pussy', 1, 0, 0]
+['cat', 'egyptian cat, cat', 1, 0, 0]
+['rabbit', 'wood rabbit, cottontail, cottontail rabbit, rabbit', 1, 0, 0]
 
 CLASSIFICATION TOTALS:
 Number of total images: 40
@@ -7,6 +17,7 @@ Number of non-dog images: 10
 Number of correctly classified dog images: 30
 Number of correctly classified dog images with correctly classified breed: 28
 Number of correctly classified non-dog images: 7
+Number of incorrectly classified non-dog images (i.e. flase positives): 0
 Number of total correct classifications (dog or not): 35
 
 CLASSIFICATION PERCENTS:
@@ -14,6 +25,7 @@ Percentage of total correct matches: 87.5
 Percentage of dog images correctly classified as dogs: 100.0
 Percentage of dog images where the breed of dog was correctly identified: 93.3
 Percentage of correctly classified pets which are not dogs: 70.0
+Percentage of non-dog pets which were classified as dogs (i.e. false positives): 0.0
 
 INCORRECTLY CLASSIFIED DOG IMAGES:
 None encountered.
@@ -23,4 +35,4 @@ File Great_pyrenees_05367.jpg was correctly classified as a dog though the breed
 File Beagle_01170.jpg was correctly classified as a dog though the breed was incorrectly classified as walker hound, walker foxhound.
 
 
-** Total Elapsed Runtime: 00:00:32:444
+** Total Elapsed Runtime: 00:00:35:635

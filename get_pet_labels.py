@@ -42,6 +42,9 @@ def get_pet_labels(image_dir):
     results_dic = {}
     keys = listdir(image_dir)
     
+    # NOTE: Hidden files are taken care of when getting the arguments,
+    # bad files will raise an error from when parsing arguments.
+    
     # itereate through files
     for key in keys:
         words = []

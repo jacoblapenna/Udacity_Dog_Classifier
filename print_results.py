@@ -64,6 +64,9 @@ def print_results(results_dic, results_stats, model,
     """    
     
     print(f"========= Summary of {model.upper()} Model Classification Results =========")
+    for key in results_dic:
+        if not results_dic[key][3]:
+            print(results_dic[key])
     print()
     print("CLASSIFICATION TOTALS:")
     print(f"Number of total images: {results_stats['n_images']}")
@@ -72,6 +75,7 @@ def print_results(results_dic, results_stats, model,
     print(f"Number of correctly classified dog images: {results_stats['n_correct_dogs']}")
     print(f"Number of correctly classified dog images with correctly classified breed: {results_stats['n_correct_breed']}")
     print(f"Number of correctly classified non-dog images: {results_stats['n_correct_notdogs']}")
+    print(f"Number of incorrectly classified non-dog images (i.e. flase positives): {results_stats['n_false_positives']}")
     print(f"Number of total correct classifications (dog or not): {results_stats['n_match']}")
     print()
     print("CLASSIFICATION PERCENTS:")
@@ -79,6 +83,7 @@ def print_results(results_dic, results_stats, model,
     print(f"Percentage of dog images correctly classified as dogs: {results_stats['pct_correct_dogs']}")
     print(f"Percentage of dog images where the breed of dog was correctly identified: {results_stats['pct_correct_breed']}")
     print(f"Percentage of correctly classified pets which are not dogs: {results_stats['pct_correct_notdogs']}")
+    print(f"Percentage of non-dog pets which were classified as dogs (i.e. false positives): {results_stats['pct_false_positives']}")
     
     if print_incorrect_dogs or print_incorrect_breed:
         incorrect_dogs = []

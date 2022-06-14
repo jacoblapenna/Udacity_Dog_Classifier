@@ -42,19 +42,18 @@ def get_pet_labels(image_dir):
     results_dic = {}
     keys = listdir(image_dir)
     
-    # NOTE: Hidden files are taken care of when getting the arguments,
-    # bad files will raise an error from when parsing arguments.
-    
     # itereate through files
     for key in keys:
-        words = []
-        # get only words from file name
-        for word in key.split("_"):
-            if word.isalpha():
-                words.append(word.lower())
-        # join all words to form value
-        value = " ".join(words).strip()
-        results_dic[key] = [value]
+        # don't use "hidden" files
+        if not key.startswith('.'):
+            words = []
+            # get only words from file name
+            for word in key.split("_"):
+                if word.isalpha():
+                    words.append(word.lower())
+            # join all words to form value
+            value = " ".join(words).strip()
+            results_dic[key] = [value]
     
     # return the dictionary containing {file : label} pairs
     return results_dic

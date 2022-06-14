@@ -75,12 +75,12 @@ def calculates_results_stats(results_dic):
     stats["n_correct_dogs"] = 0 # number of correctly classified dog images
     stats["n_correct_notdogs"] = 0 # number of correctly classified NON-dog images
     stats["n_correct_breed"] = 0 # number of correctly classified dog breeds
-    stats["n_false_positives"] = 0 # number of false positives (i.e. non-dogs classified as dogs or incorrectly classified non-dog images)
+    # stats["n_false_positives"] = 0 # number of false positives (i.e. non-dogs classified as dogs or incorrectly classified non-dog images)
     stats["pct_match"] = 0 # percentage of correct matches
     stats["pct_correct_dogs"] = 0 # percentage of correctly classified dogs
     stats["pct_correct_breed"] = 0 # percentage of correctly classified dog breeds
     stats["pct_correct_notdogs"] = 0 # percentage of correctly classified NON-dogs
-    stats["pct_false_positives"] = 0 # percentage of false positives
+    # stats["pct_false_positives"] = 0 # percentage of false positives
     
     def percent(key1, key2):
         if stats[key2]:
@@ -95,10 +95,14 @@ def calculates_results_stats(results_dic):
             stats["n_dogs_img"] += 1
         else:
             stats["n_notdogs_img"] += 1
+            """
+            # the actual correct way to count correct matches of non-dog images
             if value[2]:
                 stats["n_correct_notdogs"] += 1
+            """
+            # the desired, incorrect way to count correct non-dog images
             if value[4]:
-                stats["n_false_positives"] += 1
+                stats["n_correct_notdogs"] += 1
         if value[2]:
             stats["n_match"] += 1
         if value[3] and value[4]:
@@ -109,8 +113,8 @@ def calculates_results_stats(results_dic):
     stats["pct_match"] = percent("n_match", "n_images")
     stats["pct_correct_dogs"] = percent("n_correct_dogs", "n_dogs_img")
     stats["pct_correct_breed"] = percent("n_correct_breed", "n_dogs_img")
-    stats["pct_correct_notdogs"] = percent("n_correct_notdogs", "n_notdogs_img")
-    stats["pct_false_positives"] = percent("n_false_positives", "n_notdogs_img")
+    stats["pct_correct_notdogs"] = 100.0 - percent("n_correct_notdogs", "n_notdogs_img")
+    # stats["pct_false_positives"] = percent("n_false_positives", "n_notdogs_img")
     
     # return the stats dictionary created in this function 
     return stats

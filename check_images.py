@@ -50,7 +50,7 @@ def main():
     in_arg = get_input_args()
 
     # Function that checks command line arguments using in_arg  
-    """check_command_line_arguments(in_arg)"""
+    """check_command_line_arguments(in_arg)""" # I know I can uncomment these checks, but they are useless once the original check has been verified
 
     
     # TODO 2: Define get_pet_labels function within the file get_pet_labels.py

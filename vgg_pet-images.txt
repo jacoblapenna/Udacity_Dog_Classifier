@@ -6,21 +6,21 @@ Number of dog images: 30
 Number of non-dog images: 10
 Number of correctly classified dog images: 30
 Number of correctly classified dog images with correctly classified breed: 28
-Number of images correctly determined as not being dogs: 0
+Number of non-dog images incorrectly determined to be dogs: 0
 Number of total correct classifications (dog or not): 35
 
 CLASSIFICATION PERCENTS:
 Percentage of total correct matches: 87.5
 Percentage of dog images correctly classified as dogs: 100.0
 Percentage of dog images where the breed of dog was correctly identified: 93.3
-Percentage of images correctly determined as not being dogs: 100.0
+Percentage of non-dog images correctly determined as not being dogs: 100.0
 
 INCORRECTLY CLASSIFIED DOG IMAGES:
 None encountered.
 
 INCORRECTLY CLASSIFIED BREEDS:
-File Great_pyrenees_05367.jpg was correctly classified as a dog though the breed was incorrectly classified as kuvasz.
-File Beagle_01170.jpg was correctly classified as a dog though the breed was incorrectly classified as walker hound, walker foxhound.
+File Great_pyrenees_05367.jpg is a great pyrenees and was correctly classified as a dog though the breed was incorrectly classified as kuvasz.
+File Beagle_01170.jpg is a beagle and was correctly classified as a dog though the breed was incorrectly classified as walker hound, walker foxhound.
 
 
-** Total Elapsed Runtime: 00:00:32:480
+** Total Elapsed Runtime: 00:00:33:668

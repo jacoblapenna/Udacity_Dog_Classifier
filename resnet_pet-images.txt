@@ -6,22 +6,22 @@ Number of dog images: 30
 Number of non-dog images: 10
 Number of correctly classified dog images: 30
 Number of correctly classified dog images with correctly classified breed: 27
-Number of images correctly determined as not being dogs: 1
+Number of non-dog images incorrectly determined to be dogs: 1
 Number of total correct classifications (dog or not): 33
 
 CLASSIFICATION PERCENTS:
 Percentage of total correct matches: 82.5
 Percentage of dog images correctly classified as dogs: 100.0
 Percentage of dog images where the breed of dog was correctly identified: 90.0
-Percentage of images correctly determined as not being dogs: 90.0
+Percentage of non-dog images correctly determined as not being dogs: 90.0
 
 INCORRECTLY CLASSIFIED DOG IMAGES:
-None encountered.
+File cat_01.jpg is a cat and was incorrectly classified as norwegian elkhound, elkhound.
 
 INCORRECTLY CLASSIFIED BREEDS:
-File Great_pyrenees_05367.jpg was correctly classified as a dog though the breed was incorrectly classified as kuvasz.
-File Beagle_01170.jpg was correctly classified as a dog though the breed was incorrectly classified as walker hound, walker foxhound.
-File Golden_retriever_05182.jpg was correctly classified as a dog though the breed was incorrectly classified as leonberg.
+File Great_pyrenees_05367.jpg is a great pyrenees and was correctly classified as a dog though the breed was incorrectly classified as kuvasz.
+File Beagle_01170.jpg is a beagle and was correctly classified as a dog though the breed was incorrectly classified as walker hound, walker foxhound.
+File Golden_retriever_05182.jpg is a golden retriever and was correctly classified as a dog though the breed was incorrectly classified as leonberg.
 
 
-** Total Elapsed Runtime: 00:00:05:167
+** Total Elapsed Runtime: 00:00:05:182
